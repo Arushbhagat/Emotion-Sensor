@@ -2,62 +2,105 @@
 
 ## Overview
 
-A real-time facial emotion recognition system built using TensorFlow/Keras and OpenCV. The model was trained on the FER-2013 dataset and integrated into a desktop application for live emotion prediction through a webcam.
+This project is a real-time facial emotion recognition system developed using **TensorFlow/Keras** and **OpenCV**. A Convolutional Neural Network (CNN) was trained on the **FER-2013** facial expression dataset using **Google Colab** and later integrated into a desktop application developed in **VS Code** for real-time emotion prediction through a webcam.
+
+The application detects a human face, preprocesses the image, predicts the facial emotion, and displays the detected emotion live on the video feed.
+
+---
 
 ## Features
 
-- Real-time webcam emotion detection
-- Face detection using OpenCV
-- CNN-based emotion classification
-- Live emotion prediction
-- Pretrained model (.h5) integration
-- Fast real-time inference
+* Real-time webcam emotion detection
+* Face detection using OpenCV Haar Cascade
+* CNN-based facial emotion classification
+* Live prediction of facial expressions
+* TensorFlow/Keras model integration
+* Lightweight desktop application
+* Fast real-time inference
 
-## Tech Stack
+---
 
-- Python
-- TensorFlow
-- Keras
-- OpenCV
-- NumPy
-- Google Colab (Model Training)
-- VS Code (Application Development)
+## Technologies Used
+
+* Python
+* TensorFlow
+* Keras
+* OpenCV
+* NumPy
+* Google Colab
+* Visual Studio Code
+
+---
 
 ## Dataset
 
-**FER-2013 (Facial Expression Recognition 2013)**
+The model was trained using the **FER-2013 (Facial Expression Recognition 2013)** dataset.
 
-The model was trained on the FER-2013 dataset containing grayscale facial images classified into seven emotions.
+Dataset Characteristics:
+
+* 48 × 48 grayscale facial images
+* 7 emotion classes
+* Thousands of labeled facial expression images
+
+---
 
 ## Detected Emotions
 
-- Angry
-- Disgust
-- Fear
-- Happy
-- Neutral
-- Sad
-- Surprise
+The model predicts the following emotions:
 
-## Model Details
+* Angry
+* Disgust
+* Fear
+* Happy
+* Neutral
+* Sad
+* Surprise
 
-- Model Type: Convolutional Neural Network (CNN)
-- Framework: TensorFlow / Keras
-- Input Size: 48 × 48 Grayscale Images
-- Output Classes: 7
+---
 
-## Training
+## Model Architecture
 
-The model was trained using Google Colab.
+The emotion classifier is a custom **Convolutional Neural Network (CNN)** built using TensorFlow/Keras.
 
-Training included:
+The architecture includes:
 
-- Image preprocessing
-- Normalization
-- Data augmentation
-- CNN model training
-- Model evaluation
-- Saving trained model as `emotion_model.h5`
+* Convolutional (Conv2D) Layers
+* Batch Normalization
+* Max Pooling Layers
+* Dropout Layers
+* Flatten Layer
+* Fully Connected (Dense) Layers
+* Softmax Output Layer
+
+---
+
+## Training Pipeline
+
+The model was trained using **Google Colab** with GPU acceleration.
+
+Training pipeline included:
+
+* Loading the FER-2013 dataset
+* Image preprocessing
+* Pixel value normalization (1/255)
+* Data augmentation
+* Training and validation split
+* CNN model training
+* Model evaluation
+* Exporting the trained model as `emotion_model.h5`
+
+---
+
+## Training Configuration
+
+* Framework: TensorFlow / Keras
+* Optimizer: Adam
+* Loss Function: Categorical Crossentropy
+* Validation Split: 20%
+* Input Image Size: 48 × 48
+* Image Format: Grayscale
+
+---
 
 ## Project Structure
 
@@ -69,41 +112,79 @@ Emotion-Sensor/
 ├── requirements.txt
 ├── README.md
 ├── .gitignore
-└── Emotion_Training.ipynb
+│
+├── notebook/
+   └── emotionsensor.ipynb
 ```
+
+---
 
 ## Installation
 
-Clone the repository
+Clone the repository:
 
 ```bash
 git clone https://github.com/Arushbhagat/Emotion-Sensor.git
 ```
 
-Install dependencies
+Move into the project folder:
+
+```bash
+cd Emotion-Sensor
+```
+
+Install dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Run the project
+Run the application:
 
 ```bash
 python app.py
 ```
 
-## Screenshots
+---
 
-(Add screenshots here after uploading them.)
+## How It Works
+
+1. The webcam captures live video frames.
+2. OpenCV detects faces using a Haar Cascade classifier.
+3. The detected face is converted to grayscale.
+4. The face image is resized to **48 × 48** pixels.
+5. The trained CNN predicts the emotion.
+6. The predicted emotion is displayed in real time on the video stream.
+
+
 
 ## Future Improvements
 
-- Multi-face detection
-- Emotion confidence percentage
-- Modern GUI
-- Emotion history
-- Database integration
-- REST API using FastAPI
+* Multi-face emotion detection
+* Emotion confidence percentage
+* Emotion history logging
+* Database integration
+* PyQt6/CustomTkinter GUI
+* FastAPI REST API
+* TensorFlow Lite optimization
+* Performance benchmarking
+
+---
+
+## Learning Outcomes
+
+Through this project, I gained practical experience with:
+
+* Computer Vision
+* Deep Learning
+* Convolutional Neural Networks
+* Image Preprocessing
+* TensorFlow/Keras
+* OpenCV
+* Model Training using Google Colab
+* Real-Time AI Application Development
+
+---
 
 ## Author
 

@@ -1,0 +1,9 @@
+venv/
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
+*.pyo
+tempCodeRunnerFile.py
+.env
+.DS_Store
+Thumbs.db
